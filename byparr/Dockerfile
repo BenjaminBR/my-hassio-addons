@@ -41,7 +41,8 @@ LABEL \
     io.hass.description="Proxy server to bypass Cloudflare using Camoufox browser" \
     io.hass.arch="amd64" \
     io.hass.type="addon" \
-    io.hass.version="0.1.0"
+    io.hass.version="0.1.0" \
+    maintainer="BrunquersB (https://github.com/BenjaminBR)" \
 
 # Use the original entrypoint but with S6 overlay
 CMD ["/etc/services.d/byparr/run"]

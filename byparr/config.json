@@ -15,7 +15,6 @@
     "8191/tcp": "Byparr API endpoint (FlareSolverr compatible)"
   },
   "webui": "http://[HOST]:[PORT:8191]/docs",
-  "image": "ghcr.io/thephaseless/byparr",
   "options": {
     "log_level": "info"
   },
