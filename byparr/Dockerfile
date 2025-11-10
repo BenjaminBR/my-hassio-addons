@@ -42,7 +42,7 @@ LABEL \
     io.hass.arch="amd64" \
     io.hass.type="addon" \
     io.hass.version="0.1.0" \
-    maintainer="BrunquersB (https://github.com/BenjaminBR)" \
+    maintainer="BrunquersB (https://github.com/BenjaminBR)"
 
 # Use the original entrypoint but with S6 overlay
 CMD ["/etc/services.d/byparr/run"]
