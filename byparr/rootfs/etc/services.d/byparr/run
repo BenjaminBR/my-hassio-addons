@@ -1,0 +1,52 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Home Assistant Add-on: Byparr
+# Runs the Byparr service
+# ==============================================================================
+
+bashio::log.info "Starting Byparr..."
+
+# Read configuration from Home Assistant
+declare log_level
+declare proxy_server
+declare proxy_username
+declare proxy_password
+
+log_level=$(bashio::config 'log_level' 'info')
+bashio::log.info "Log level set to: ${log_level}"
+
+# Set environment variables
+export LOG_LEVEL="${log_level}"
+export HOST="0.0.0.0"
+export PORT="8191"
+export PYTHONUNBUFFERED="1"
+export PYTHONDONTWRITEBYTECODE="1"
+
+# Configure proxy if provided
+if bashio::config.has_value 'proxy_server'; then
+    proxy_server=$(bashio::config 'proxy_server')
+    export PROXY_SERVER="${proxy_server}"
+    bashio::log.info "Proxy server configured: ${proxy_server}"
+
+    if bashio::config.has_value 'proxy_username'; then
+        proxy_username=$(bashio::config 'proxy_username')
+        export PROXY_USERNAME="${proxy_username}"
+        bashio::log.info "Proxy username configured"
+
+        if bashio::config.has_value 'proxy_password'; then
+            proxy_password=$(bashio::config 'proxy_password')
+            export PROXY_PASSWORD="${proxy_password}"
+            bashio::log.info "Proxy password configured"
+        fi
+    fi
+fi
+
+bashio::log.info "Configuration loaded successfully"
+bashio::log.info "Starting Byparr API on port 8191..."
+bashio::log.info "Web UI available at: http://[HOST]:8191/docs"
+
+# Change to the application directory
+cd /app || bashio::exit.nok "Could not change to /app directory"
+
+# Run the application using uv
+exec uv run main.py
