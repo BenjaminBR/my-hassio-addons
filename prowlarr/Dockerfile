@@ -8,23 +8,6 @@ ENV S6_CMD_WAIT_FOR_SERVICES=1 \
 # Switch to root for installation
 USER root
 
-# Install bashio for Home Assistant integration
-# RUN apt-get update && \
-#     apt-get install -y --no-install-recommends \
-#     bash \
-#     curl \
-#     jq \
-#     ca-certificates && \
-#     curl -J -L -o /tmp/bashio.tar.gz \
-#     "https://github.com/hassio-addons/bashio/archive/v0.16.2.tar.gz" && \
-#     mkdir /tmp/bashio && \
-#     tar zxvf /tmp/bashio.tar.gz --strip 1 -C /tmp/bashio && \
-#     mv /tmp/bashio/lib /usr/lib/bashio && \
-#     ln -s /usr/lib/bashio/bashio /usr/bin/bashio && \
-#     rm -rf /tmp/bashio /tmp/bashio.tar.gz && \
-#     apt-get clean && \
-#     rm -rf /var/lib/apt/lists/*
-
 ADD https://gist.githubusercontent.com/Clemv95/8bfded23ef23ec78f6678896f42a2b60/raw/f1c073f1994ab9c5c13ab68fa463ac2c862299c8/ygg-api-download.yml \
         /config/Definitions/Custom/ygg-api.yml
 
