@@ -6,14 +6,18 @@ description: Indexer manager/proxy for Sonarr, Radarr, Lidarr and other *arr app
 url: https://github.com/Prowlarr/Prowlarr
 arch:
   - amd64
-startup: application
-boot: auto
 init: false
+map:
+  - config:rw
+  - share:rw
+  - media:rw
+  - ssl
 ports:
   9696/tcp: 9696
 ports_description:
   9696/tcp: Prowlarr WEB UI
 webui: "http://[HOST]:[PORT:9696]"
+healthcheck: "http://[HOST]:[PORT:9696]/api/v1/health"
 options:
   log_level: info
 schema:
