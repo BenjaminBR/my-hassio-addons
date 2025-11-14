@@ -8,6 +8,7 @@ arch:
   - amd64
 init: false
 map:
+  - addon_config:rw
   - share:rw
   - media:rw
 ports:
