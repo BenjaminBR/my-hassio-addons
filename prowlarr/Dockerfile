@@ -5,17 +5,14 @@ ENV S6_CMD_WAIT_FOR_SERVICES=1 \
     S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0 \
     S6_SERVICES_GRACETIME=0
 
-# Switch to root for installation
-USER root
+# Installer curl si nécessaire
+RUN apk add --no-cache curl
 
-ADD https://gist.githubusercontent.com/Clemv95/8bfded23ef23ec78f6678896f42a2b60/raw/f1c073f1994ab9c5c13ab68fa463ac2c862299c8/ygg-api-download.yml \
-        /config/Definitions/Custom/ygg-api.yml
+# Copier le script d'init
+COPY rootfs /
 
-ADD https://raw.githubusercontent.com/Jackett/Jackett/master/src/Jackett.Common/Definitions/yggtorrent.yml \
-        /config/Definitions/Custom/yggtorrent.yml
-
-ADD https://raw.githubusercontent.com/Jackett/Jackett/master/src/Jackett.Common/Definitions/yggcookie.yml \
-        /config/Definitions/Custom/yggcookie.yml
+# Rendre le script exécutable
+RUN chmod a+x /etc/cont-init.d/99-custom-definitions.sh
 
 # Labels
 LABEL \
