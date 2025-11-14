@@ -12,7 +12,7 @@ RUN apk add --no-cache curl
 COPY rootfs /
 
 # Rendre le script exécutable
-RUN chmod a+x /etc/cont-init.d/99-custom-definitions.sh
+RUN chmod a+x /etc/cont-init.d/99-add-custom-config.sh
 
 # Labels
 LABEL \
