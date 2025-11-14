@@ -17,10 +17,6 @@ ADD https://raw.githubusercontent.com/Jackett/Jackett/master/src/Jackett.Common/
 ADD https://raw.githubusercontent.com/Jackett/Jackett/master/src/Jackett.Common/Definitions/yggcookie.yml \
         /config/Definitions/Custom/yggcookie.yml
 
-# Health check configuration
-HEALTHCHECK --interval=30s --retries=5 --start-period=60s --timeout=10s \
-    CMD curl -f http://127.0.0.1:9696/api/v1/health || exit 1
-
 # Labels
 LABEL \
     io.hass.name="Prowlarr" \
