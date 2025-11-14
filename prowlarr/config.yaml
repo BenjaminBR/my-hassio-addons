@@ -1,0 +1,23 @@
+---
+name: Prowlarr
+version: "0.1.0"
+slug: prowlarr
+description: Indexer manager/proxy for Sonarr, Radarr, Lidarr and other *arr applications with custom YGGTorrent support
+url: https://github.com/Prowlarr/Prowlarr
+arch:
+  - amd64
+startup: application
+boot: auto
+init: false
+ports:
+  9696/tcp: 9696
+ports_description:
+  9696/tcp: Prowlarr WEB UI
+webui: "http://[HOST]:[PORT:9696]"
+options:
+  log_level: info
+schema:
+  log_level: list(debug|info|warning|error)?
+environment:
+  HOST: "0.0.0.0"
+  PORT: "9696"
