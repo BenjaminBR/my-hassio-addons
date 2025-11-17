@@ -5,6 +5,20 @@ All notable changes to this add-on will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] - 2025-11-17
+
+### Changed
+- Upgraded base image from Prowlarr 2.1.5 to 2.3.0.5236
+
+### Features (from Prowlarr 2.3.0)
+- Added support for private IPv6 networks alongside existing RFC 1918 range handling
+- Enhanced startup configuration with RFC 1918 network ranges
+- Fixed qBittorrent /login API success check authentication issue
+
+### Technical Details
+- Base Image: `linuxserver/prowlarr:2.3.0`
+- Release Date: November 16, 2025
+
 ## [0.1.0] - 2025-11-14
 
 ### Added
@@ -51,4 +65,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Troubleshooting guide for common issues
 - Integration guides for *arr applications
 
+[0.2.0]: https://github.com/BenjaminBR/my-hassio-addons/releases/tag/prowlarr-v0.2.0
 [0.1.0]: https://github.com/BenjaminBR/my-hassio-addons/releases/tag/prowlarr-v0.1.0

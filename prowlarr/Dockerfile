@@ -1,4 +1,4 @@
-FROM linuxserver/prowlarr:2.1.5
+FROM linuxserver/prowlarr:2.3.0
 
 # Set S6 overlay configuration
 ENV S6_CMD_WAIT_FOR_SERVICES=1 \
