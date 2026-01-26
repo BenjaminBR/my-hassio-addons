@@ -22,7 +22,7 @@ options:
   tmdb_enabled: true
   ygg_username: ""
   ygg_password: ""
-  tmdb_token:""
+  tmdb_token: ""
 schema:
   log_level: list(debug|info|warning|error)?
   imdb_enabled: bool?
