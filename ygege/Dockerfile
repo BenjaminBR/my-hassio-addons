@@ -1,16 +1,14 @@
 FROM uwucode/ygege:latest
 
-# Install bash and bashio for Home Assistant integration
-RUN apk add --no-cache bash curl jq
-
-# Install bashio
-RUN curl -J -L -o /tmp/bashio.tar.gz \
-    "https://github.com/hassio-addons/bashio/archive/v0.16.2.tar.gz" \
-    && mkdir -p /tmp/bashio \
-    && tar zxvf /tmp/bashio.tar.gz --strip 1 -C /tmp/bashio \
-    && mv /tmp/bashio/lib /usr/lib/bashio \
-    && ln -s /usr/lib/bashio/bashio /usr/bin/bashio \
-    && rm -rf /tmp/bashio /tmp/bashio.tar.gz
+# Install dependencies for Home Assistant integration
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        bash \
+        curl \
+        jq \
+        wget \
+        ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy startup script
 COPY rootfs/run.sh /run.sh
@@ -22,7 +20,7 @@ LABEL \
     io.hass.description="High-performance YGG Torrent indexer with automatic Cloudflare bypass" \
     io.hass.arch="amd64" \
     io.hass.type="addon" \
-    io.hass.version="1.0.2" \
+    io.hass.version="1.0.3" \
     maintainer="BrunquersB (https://github.com/BenjaminBR)"
 
 # Expose the web interface port

@@ -2,6 +2,18 @@
 
 All notable changes to this Home Assistant add-on will be documented in this file.
 
+## [1.0.3] - 2026-01-26
+
+### Fixed
+- **Build Error**: Fixed "apk not found" error in Dockerfile
+- Corrected package manager from `apk` (Alpine) to `apt-get` (Debian)
+- Added wget for healthcheck functionality
+
+### Technical
+- Base image uwucode/ygege:latest uses Debian 12 (bookworm), not Alpine
+- Updated dependency installation to use Debian package manager
+- Added ca-certificates for proper SSL/TLS support
+
 ## [1.0.2] - 2026-01-26
 
 ### Fixed
