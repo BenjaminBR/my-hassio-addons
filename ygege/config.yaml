@@ -1,12 +1,12 @@
 ---
 name: Ygégé
-version: "1.0.0"
+version: "1.0.1"
 slug: ygege
 description: High-performance YGG Torrent indexer with automatic Cloudflare bypass
 url: https://github.com/UwUDev/ygege
 arch:
   - amd64
-init: false
+init: true
 map:
   - addon_config:rw
   - share:rw

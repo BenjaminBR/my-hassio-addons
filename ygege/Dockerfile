@@ -1,4 +1,16 @@
-FROM uwucode/ygege:latest
+FROM ghcr.io/hassio-addons/base:16.3.2
+
+# Copy ygege binary and required files from the official image
+COPY --from=uwucode/ygege:latest /app/ygege /app/ygege
+COPY --from=uwucode/ygege:latest /app/sessions /app/sessions
+
+# Install runtime dependencies
+RUN apk add --no-cache \
+    ca-certificates \
+    wget
+
+# Copy rootfs
+COPY rootfs /
 
 # Labels
 LABEL \
@@ -6,13 +18,8 @@ LABEL \
     io.hass.description="High-performance YGG Torrent indexer with automatic Cloudflare bypass" \
     io.hass.arch="amd64" \
     io.hass.type="addon" \
-    io.hass.version="1.0.0" \
+    io.hass.version="1.0.1" \
     maintainer="BrunquersB (https://github.com/BenjaminBR)"
-
-# Set default environment variables
-ENV BIND_IP="0.0.0.0" \
-    BIND_PORT="8715" \
-    LOG_LEVEL="info"
 
 # Expose the web interface port
 EXPOSE 8715

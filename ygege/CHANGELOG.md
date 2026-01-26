@@ -2,6 +2,25 @@
 
 All notable changes to this Home Assistant add-on will be documented in this file.
 
+## [1.0.1] - 2026-01-26
+
+### Fixed
+- **Critical**: Fixed environment variable handling for YGG credentials
+- Added S6-overlay service management for proper startup sequence
+- Implemented configuration validation with bashio helpers
+- Fixed "You need to set a valid YGG_USERNAME and YGG_PASSWORD" error
+
+### Changed
+- Switched to Home Assistant base image (ghcr.io/hassio-addons/base:16.3.2)
+- Enabled S6 init system (init: true) for proper service management
+- Added dedicated service script with pre-flight checks
+- Improved error messages and logging during startup
+
+### Technical
+- Added /etc/s6-overlay/s6-rc.d/ygege service definition
+- Implemented bashio config helpers for safer configuration access
+- Binary copied from official uwucode/ygege image with multi-stage build
+
 ## [1.0.0] - 2026-01-26
 
 ### Added
