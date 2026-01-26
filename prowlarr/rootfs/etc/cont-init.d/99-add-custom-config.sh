@@ -21,13 +21,4 @@ else
     echo "[INFO] Custom definitions already exist"
 fi
 
-if [ ! -f /config/Definitions/Custom/ygege.yml ]; then
-    echo "[INFO] Downloading custom YGG definitions..."
-    
-    curl -fsSL https://raw.githubusercontent.com/UwUDev/ygege/refs/heads/develop/ygege.yml \
-        -o /config/Definitions/Custom/ygege.yml
-    
-    echo "[INFO] Custom definitions installed!"
-else
-    echo "[INFO] Custom definitions already exist"
-fi
+mv /tmp/config/* /config/Definitions/Custom/ygege.yml

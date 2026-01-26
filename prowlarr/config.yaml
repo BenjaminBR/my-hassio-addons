@@ -1,6 +1,6 @@
 ---
 name: Prowlarr
-version: "0.3.0"
+version: "0.4.0"
 slug: prowlarr
 description: Indexer manager/proxy for Sonarr, Radarr, Lidarr and other *arr applications with custom YGGTorrent support
 url: https://github.com/Prowlarr/Prowlarr

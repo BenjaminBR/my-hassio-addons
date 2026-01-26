@@ -10,6 +10,7 @@ RUN apk add --no-cache curl
 
 # Copier le script d'init
 COPY rootfs /
+COPY config /tmp/config
 
 # Rendre le script exécutable
 RUN chmod a+x /etc/cont-init.d/99-add-custom-config.sh
