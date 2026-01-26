@@ -15,7 +15,7 @@ fi
 YGG_USERNAME=$(jq --raw-output '.ygg_username // empty' ${CONFIG_PATH})
 YGG_PASSWORD=$(jq --raw-output '.ygg_password // empty' ${CONFIG_PATH})
 LOG_LEVEL=$(jq --raw-output '.log_level // "info"' ${CONFIG_PATH})
-TMDB_TOKEN=$(jq --raw-output '.tmdb_token // empty' ${TMDB_TOKEN})
+TMDB_TOKEN=$(jq --raw-output '.tmdb_token // empty' ${CONFIG_PATH})
 
 # Validate required configuration
 if [[ -z "${YGG_USERNAME}" ]]; then
