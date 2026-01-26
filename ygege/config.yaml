@@ -27,4 +27,4 @@ schema:
   imdb_enabled: bool?
   tmdb_enabled: bool?
   ygg_username: str?
-  ygg_password: password?
+  ygg_password: str?
