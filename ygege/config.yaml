@@ -29,5 +29,5 @@ schema:
   ygg_username: str?
   ygg_password: str?
 environment:
-  YGG_USERNAME: "test"
-  YGG_PASSWORD: "test"
+  YGG_USERNAME: {{ ygg_username }}
+  YGG_PASSWORD: {{ ygg_password }}
