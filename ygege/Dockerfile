@@ -27,7 +27,7 @@ LABEL \
 EXPOSE 8715
 
 # Use our startup script
-CMD ["/run.sh"]
+ENTRYPOINT ["/run.sh"]
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \

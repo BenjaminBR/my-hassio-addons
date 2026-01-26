@@ -1,6 +1,6 @@
 ---
 name: Ygégé
-version: "1.0.5"
+version: "1.0.6"
 slug: ygege
 description: High-performance YGG Torrent indexer with automatic Cloudflare bypass
 url: https://github.com/UwUDev/ygege
@@ -28,6 +28,3 @@ schema:
   tmdb_enabled: bool?
   ygg_username: str?
   ygg_password: str?
-environment:
-  YGG_USERNAME: "{{ ygg_username }}"
-  YGG_PASSWORD: "{{ ygg_password }}"
