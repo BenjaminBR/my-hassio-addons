@@ -2,7 +2,26 @@
 
 All notable changes to this Home Assistant add-on will be documented in this file.
 
-## [1.0.1] - 2026-01-26
+## [1.0.2] - 2026-01-26
+
+### Fixed
+- **Critical**: Fixed "s6-overlay-suexec: fatal: can only run as pid 1" error
+- Simplified startup process by removing S6-overlay dependency
+- Configuration now properly read from /data/options.json
+
+### Changed
+- Reverted to using uwucode/ygege:latest as base image
+- Replaced S6-overlay with simple bash startup script
+- Direct configuration validation using jq instead of bashio
+- Streamlined container initialization process
+
+### Technical
+- Removed S6-overlay service definitions
+- Added /run.sh startup script with direct config parsing
+- Improved error messages for missing credentials
+- Maintained all configuration validation features
+
+## [1.0.1] - 2026-01-26 (deprecated - had S6 issues)
 
 ### Fixed
 - **Critical**: Fixed environment variable handling for YGG credentials
